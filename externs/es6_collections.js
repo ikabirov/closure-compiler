@@ -24,7 +24,7 @@
 
 /**
  * @constructor @struct
- * @param {Iterable<!Array<KEY|VALUE>>|!Array<!Array<KEY|VALUE>>=} opt_iterable
+ * @param {?Iterable<!Array<KEY|VALUE>>|!Array<!Array<KEY|VALUE>>=} opt_iterable
  * @implements {Iterable<!Array<KEY|VALUE>>}
  * @template KEY, VALUE
  * @nosideeffects
@@ -104,7 +104,7 @@ Map.prototype[Symbol.iterator] = function() {};
 
 /**
  * @constructor @struct
- * @param {Iterable<!Array<KEY|VALUE>>|!Array<!Array<KEY|VALUE>>=} opt_iterable
+ * @param {?Iterable<!Array<KEY|VALUE>>|!Array<!Array<KEY|VALUE>>=} opt_iterable
  * @template KEY, VALUE
  * @nosideeffects
  * @see https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/WeakMap
@@ -145,7 +145,7 @@ WeakMap.prototype.set = function(key, value) {};
 
 /**
  * @constructor @struct
- * @param {Iterable<VALUE>|Array<VALUE>=} opt_iterable
+ * @param {?Iterable<VALUE>|?Array<VALUE>=} opt_iterable
  * @implements {Iterable<VALUE>}
  * @template VALUE
  * @nosideeffects
@@ -220,7 +220,7 @@ Set.prototype[Symbol.iterator] = function() {};
 
 /**
  * @constructor @struct
- * @param {Iterable<VALUE>|Array<VALUE>=} opt_iterable
+ * @param {?Iterable<VALUE>|?Array<VALUE>=} opt_iterable
  * @template VALUE
  * @nosideeffects
  * @see https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Set

@@ -74,7 +74,7 @@ function XPathEvaluator() {}
 XPathEvaluator.prototype.createExpression = function(expr, opt_resolver) {};
 
 /**
- * @param {Node} nodeResolver
+ * @param {?Node} nodeResolver
  * @see http://www.w3.org/TR/DOM-Level-3-XPath/xpath.html#XPathEvaluator-createNSResolver
  * @return {undefined}
  */
@@ -82,11 +82,11 @@ XPathEvaluator.prototype.createNSResolver = function(nodeResolver) {};
 
 /**
  * @param {string} expr
- * @param {Node} contextNode
+ * @param {?Node} contextNode
  * @param {?XPathNSResolver=} opt_resolver
  * @param {?number=} opt_type
  * @param {*=} opt_result
- * @return {XPathResult}
+ * @return {?XPathResult}
  * @throws XPathException
  * @throws DOMException
  * @see http://www.w3.org/TR/DOM-Level-3-XPath/xpath.html#XPathEvaluator-evaluate
@@ -102,7 +102,7 @@ XPathEvaluator.prototype.evaluate = function(expr, contextNode, opt_resolver,
 function XPathExpression() {}
 
 /**
- * @param {Node} contextNode
+ * @param {?Node} contextNode
  * @param {number=} opt_type
  * @param {*=} opt_result
  * @return {*}
@@ -165,7 +165,7 @@ XPathResult.prototype.numberValue;
 XPathResult.prototype.resultType;
 
 /**
- * @type {Node}
+ * @type {?Node}
  * @throws XPathException {@see XPathException.TYPE_ERR}
  * @see http://www.w3.org/TR/DOM-Level-3-XPath/xpath.html#XPathResult-singleNodeValue
  */
@@ -186,7 +186,7 @@ XPathResult.prototype.snapshotLength;
 XPathResult.prototype.stringValue;
 
 /**
- * @return {Node}
+ * @return {?Node}
  * @throws XPathException {@see XPathException.TYPE_ERR}
  * @throws DOMException {@see DOMException.INVALID_STATE_ERR}
  * @see http://www.w3.org/TR/DOM-Level-3-XPath/xpath.html#XPathResult-iterateNext
@@ -195,7 +195,7 @@ XPathResult.prototype.iterateNext = function() {};
 
 /**
  * @param {number} index
- * @return {Node}
+ * @return {?Node}
  * @throws XPathException
  * @see http://www.w3.org/TR/DOM-Level-3-XPath/xpath.html#XPathResult-snapshotItem
  */
@@ -269,7 +269,7 @@ XPathResult.FIRST_ORDERED_NODE_TYPE = 9;
 function XPathNamespace() {}
 
 /**
- * @type {Element}
+ * @type {?Element}
  * @see http://www.w3.org/TR/DOM-Level-3-XPath/xpath.html#XPathNamespace-ownerElement
  */
 XPathNamespace.prototype.ownerElement;
@@ -327,7 +327,7 @@ XMLHttpRequest.prototype.open = function(method, url, opt_async, opt_user,
 XMLHttpRequest.prototype.setRequestHeader = function(header, value) {};
 
 /**
- * @param {ArrayBuffer|ArrayBufferView|Blob|Document|FormData|string=} opt_data
+ * @param {?ArrayBuffer|?ArrayBufferView|?Blob|?Document|?FormData|string=} opt_data
  * @return {undefined}
  * @see http://www.w3.org/TR/XMLHttpRequest/#the-send()-method
  */
@@ -366,7 +366,7 @@ XMLHttpRequest.prototype.responseText;
 XMLHttpRequest.prototype.responseURL;
 
 /**
- * @type {Document}
+ * @type {?Document}
  * @see http://www.w3.org/TR/XMLHttpRequest/#the-responsexml-attribute
  */
 XMLHttpRequest.prototype.responseXML;
@@ -444,7 +444,7 @@ function FormData(opt_form) {}
 
 /**
  * @param {string} name
- * @param {Blob|string} value
+ * @param {?Blob|string} value
  * @param {string=} opt_filename
  * @return {undefined}
  */

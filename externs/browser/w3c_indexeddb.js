@@ -407,21 +407,21 @@ IDBObjectStore.prototype.index = function(name) {};
 IDBObjectStore.prototype.deleteIndex = function(indexName) {};
 
 /**
- * @param {(!IDBKeyType|IDBKeyRange)=} key The key of this value.
+ * @param {(!IDBKeyType|?IDBKeyRange)=} key The key of this value.
  * @return {!IDBRequest} The IDBRequest object.
  * @see http://www.w3.org/TR/IndexedDB/#widl-IDBObjectStore-count
  */
 IDBObjectStore.prototype.count = function(key) {};
 
 /**
- * @param {(!IDBKeyType|IDBKeyRange)=} query
+ * @param {(!IDBKeyType|?IDBKeyRange)=} query
  * @return {!IDBRequest} The IDBRequest object.
  * @see https://www.w3.org/TR/IndexedDB-2/#dom-idbobjectstore-getkey
  */
 IDBObjectStore.prototype.getKey = function(query) {};
 
 /**
- * @param {(!IDBKeyType|IDBKeyRange)=} query
+ * @param {(!IDBKeyType|?IDBKeyRange)=} query
  * @param {number=} count
  * @return {!IDBRequest} The IDBRequest object.
  * @see https://www.w3.org/TR/IndexedDB-2/#dom-idbobjectstore-getall
@@ -429,7 +429,7 @@ IDBObjectStore.prototype.getKey = function(query) {};
 IDBObjectStore.prototype.getAll = function(query, count) {};
 
 /**
- * @param {(!IDBKeyType|IDBKeyRange)=} query
+ * @param {(!IDBKeyType|?IDBKeyRange)=} query
  * @param {number=} count
  * @return {!IDBRequest} The IDBRequest object.
  * @see https://www.w3.org/TR/IndexedDB-2/#dom-idbobjectstore-getallkeys
@@ -437,7 +437,7 @@ IDBObjectStore.prototype.getAll = function(query, count) {};
 IDBObjectStore.prototype.getAllKeys = function(query, count) {};
 
 /**
- * @param {(!IDBKeyType|IDBKeyRange)=} query
+ * @param {(!IDBKeyType|?IDBKeyRange)=} query
  * @param {!IDBCursorDirection=} direction
  * @return {!IDBRequest} The IDBRequest object.
  * @see https://www.w3.org/TR/IndexedDB-2/#dom-idbobjectstore-openkeycursor

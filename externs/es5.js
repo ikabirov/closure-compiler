@@ -22,7 +22,7 @@
 
 
 /**
- * @param {Object|undefined} selfObj Specifies the object to which |this| should
+ * @param {?Object|undefined} selfObj Specifies the object to which |this| should
  *     point when the function is run. If the value is null or undefined, it
  *     will default to the global object.
  * @param {...*} var_args Additional arguments that are partially
@@ -150,7 +150,7 @@ Object.getOwnPropertyNames = function(obj) {};
 
 /**
  * @param {!Object} obj
- * @return {Object}
+ * @return {?Object}
  * @nosideeffects
  * @see https://developer.mozilla.org/en/JavaScript/Reference/Global_Objects/Object/GetPrototypeOf
  */

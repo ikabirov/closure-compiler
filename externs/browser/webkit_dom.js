@@ -69,7 +69,7 @@ ScriptProfileNode.prototype.selfTime;
 /** @type {number} */
 ScriptProfileNode.prototype.numberOfCalls;
 
-/** @type {Array<ScriptProfileNode>} */
+/** @type {?Array<?ScriptProfileNode>} */
 ScriptProfileNode.prototype.children;
 
 /** @type {boolean} */
@@ -90,7 +90,7 @@ ScriptProfile.prototype.title;
 /** @type {number} */
 ScriptProfile.prototype.uid;
 
-/** @type {ScriptProfileNode} */
+/** @type {?ScriptProfileNode} */
 ScriptProfile.prototype.head;
 
 /**
@@ -179,7 +179,7 @@ Console.prototype.markTimeline = function(value) {};
  */
 Console.prototype.profile = function(opt_title) {};
 
-/** @type {Array<ScriptProfile>} */
+/** @type {?Array<?ScriptProfile>} */
 Console.prototype.profiles;
 
 /**
@@ -222,7 +222,7 @@ Console.prototype.groupEnd = function() {};
 
 Console.prototype.clear = function() {};
 
-/** @type {MemoryInfo} */
+/** @type {?MemoryInfo} */
 Console.prototype.memory;
 
 /** @type {!Console} */
@@ -240,13 +240,13 @@ var console;
  */
 Window.prototype.devicePixelRatio;
 
-/** @type {Node} */
+/** @type {?Node} */
 Selection.prototype.baseNode;
 
 /** @type {number} */
 Selection.prototype.baseOffset;
 
-/** @type {Node} */
+/** @type {?Node} */
 Selection.prototype.extentNode;
 
 /** @type {number} */
@@ -261,9 +261,9 @@ Selection.prototype.type;
 Selection.prototype.empty = function() {};
 
 /**
- * @param {Node} baseNode
+ * @param {?Node} baseNode
  * @param {number} baseOffset
- * @param {Node} extentNode
+ * @param {?Node} extentNode
  * @param {number} extentOffset
  * @return {undefined}
  */
@@ -279,10 +279,10 @@ Selection.prototype.setBaseAndExtent =
 Selection.prototype.modify = function(alter, direction, granularity) {};
 
 /**
- * @param {Element} element
+ * @param {?Element} element
  * @param {string} pseudoElement
  * @param {boolean=} opt_authorOnly
- * @return {CSSRuleList}
+ * @return {?CSSRuleList}
  * @nosideeffects
  */
 ViewCSS.prototype.getMatchedCSSRules =

@@ -183,7 +183,7 @@ Object.is;
 /**
  * Returns a language-sensitive string representation of this number.
  * @param {(string|!Array<string>)=} opt_locales
- * @param {Object=} opt_options
+ * @param {?Object=} opt_options
  * @return {string}
  * @nosideeffects
  * @see https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Number/toLocaleString
@@ -633,7 +633,7 @@ TypedArray.prototype.toString = function() {};
 TypedArray.prototype[Symbol.iterator] = function() {};
 
 /**
- * @param {number|ArrayBufferView|Array<number>|ArrayBuffer|SharedArrayBuffer}
+ * @param {number|?ArrayBufferView|?Array<number>|?ArrayBuffer|?SharedArrayBuffer}
  *     length or array or buffer
  * @param {number=} opt_byteOffset
  * @param {number=} opt_length
@@ -676,7 +676,7 @@ Int8Array.of = function(var_args) {};
 
 
 /**
- * @param {number|ArrayBufferView|Array<number>|ArrayBuffer|SharedArrayBuffer}
+ * @param {number|?ArrayBufferView|?Array<number>|?ArrayBuffer|?SharedArrayBuffer}
  *     length or array or buffer
  * @param {number=} opt_byteOffset
  * @param {number=} opt_length
@@ -709,7 +709,7 @@ Uint8Array.of = function(var_args) {};
 
 
 /**
- * @param {number|ArrayBufferView|Array<number>|ArrayBuffer|SharedArrayBuffer}
+ * @param {number|?ArrayBufferView|?Array<number>|?ArrayBuffer|?SharedArrayBuffer}
  *     length or array or buffer
  * @param {number=} opt_byteOffset
  * @param {number=} opt_length
@@ -742,7 +742,7 @@ Uint8ClampedArray.of = function(var_args) {};
 
 
 /**
- * @typedef {Uint8ClampedArray}
+ * @typedef {?Uint8ClampedArray}
  * @deprecated CanvasPixelArray has been replaced by Uint8ClampedArray
  *     in the latest spec.
  * @see http://www.w3.org/TR/2dcontext/#imagedata
@@ -751,7 +751,7 @@ var CanvasPixelArray;
 
 
 /**
- * @param {number|ArrayBufferView|Array<number>|ArrayBuffer|SharedArrayBuffer}
+ * @param {number|?ArrayBufferView|?Array<number>|?ArrayBuffer|?SharedArrayBuffer}
  *     length or array or buffer
  * @param {number=} opt_byteOffset
  * @param {number=} opt_length
@@ -784,7 +784,7 @@ Int16Array.of = function(var_args) {};
 
 
 /**
- * @param {number|ArrayBufferView|Array<number>|ArrayBuffer|SharedArrayBuffer}
+ * @param {number|?ArrayBufferView|?Array<number>|?ArrayBuffer|?SharedArrayBuffer}
  *     length or array or buffer
  * @param {number=} opt_byteOffset
  * @param {number=} opt_length
@@ -817,7 +817,7 @@ Uint16Array.of = function(var_args) {};
 
 
 /**
- * @param {number|ArrayBufferView|Array<number>|ArrayBuffer|SharedArrayBuffer}
+ * @param {number|?ArrayBufferView|?Array<number>|?ArrayBuffer|?SharedArrayBuffer}
  *     length or array or buffer
  * @param {number=} opt_byteOffset
  * @param {number=} opt_length
@@ -850,7 +850,7 @@ Int32Array.of = function(var_args) {};
 
 
 /**
- * @param {number|ArrayBufferView|Array<number>|ArrayBuffer|SharedArrayBuffer}
+ * @param {number|?ArrayBufferView|?Array<number>|?ArrayBuffer|?SharedArrayBuffer}
  *     length or array or buffer
  * @param {number=} opt_byteOffset
  * @param {number=} opt_length
@@ -883,7 +883,7 @@ Uint32Array.of = function(var_args) {};
 
 
 /**
- * @param {number|ArrayBufferView|Array<number>|ArrayBuffer|SharedArrayBuffer}
+ * @param {number|?ArrayBufferView|?Array<number>|?ArrayBuffer|?SharedArrayBuffer}
  *     length or array or buffer
  * @param {number=} opt_byteOffset
  * @param {number=} opt_length
@@ -916,7 +916,7 @@ Float32Array.of = function(var_args) {};
 
 
 /**
- * @param {number|ArrayBufferView|Array<number>|ArrayBuffer|SharedArrayBuffer}
+ * @param {number|?ArrayBufferView|?Array<number>|?ArrayBuffer|?SharedArrayBuffer}
  *     length or array or buffer
  * @param {number=} opt_byteOffset
  * @param {number=} opt_length
@@ -949,7 +949,7 @@ Float64Array.of = function(var_args) {};
 
 
 /**
- * @param {ArrayBuffer|SharedArrayBuffer} buffer
+ * @param {?ArrayBuffer|?SharedArrayBuffer} buffer
  * @param {number=} opt_byteOffset
  * @param {number=} opt_byteLength
  * @constructor
@@ -1137,7 +1137,7 @@ IThenable.prototype.then = function(opt_onFulfilled, opt_onRejected) {};
 /**
  * @see https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Promise
  * @param {function(
- *             function((TYPE|IThenable<TYPE>|Thenable|null)=),
+ *             function((TYPE|?IThenable<TYPE>|?Thenable|null)=),
  *             function(*=))} resolver
  * @constructor
  * @implements {IThenable<TYPE>}
@@ -1430,7 +1430,7 @@ Number.isSafeInteger = function(value) {};
 
 /**
  * @param {!Object} target
- * @param {...(Object|null|undefined)} var_args
+ * @param {...(?Object|null|undefined)} var_args
  * @return {!Object}
  * @see https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object/assign
  */
@@ -1672,7 +1672,7 @@ Atomics.sub = function(typedArray, index, value) {}
  * @param {number} index
  * @param {number} value
  * @param {number=} timeout
- * @return {String}
+ * @return {?String}
  */
 Atomics.wait = function(typedArray, index, value, timeout) {}
 

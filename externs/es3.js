@@ -147,7 +147,7 @@ IArrayLike.prototype.length;
 function Arguments() {}
 
 /**
- * @type {Function}
+ * @type {?Function}
  * @see http://developer.mozilla.org/En/Core_JavaScript_1.5_Reference/Functions_and_function_scope/arguments/callee
  */
 Arguments.prototype.callee;
@@ -155,7 +155,7 @@ Arguments.prototype.callee;
 /**
  * Use the non-standard {@see Function.prototype.caller} property of a function
  * object instead.
- * @type {Function}
+ * @type {?Function}
  * @see http://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Functions/arguments/caller
  * @deprecated
  */
@@ -312,7 +312,7 @@ function Object(opt_value) {}
 
 /**
  * The constructor of the current object.
- * @type {Function}
+ * @type {?Function}
  * @see http://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object/constructor
  */
 Object.prototype.constructor = function() {};
@@ -323,7 +323,7 @@ Object.prototype.constructor = function() {};
  * Mozilla-only.
  *
  * @param {string} sprop
- * @param {Function} fun
+ * @param {?Function} fun
  * @modifies {this}
  * @see http://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object/defineGetter
  * @return {undefined}
@@ -336,7 +336,7 @@ Object.prototype.__defineGetter__ = function(sprop, fun) {};
  * Mozilla-only.
  *
  * @param {string} sprop
- * @param {Function} fun
+ * @param {?Function} fun
  * @modifies {this}
  * @see http://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object/defineSetter
  * @return {undefined}
@@ -356,7 +356,7 @@ Object.prototype.hasOwnProperty = function(propertyName) {};
 /**
  * Returns whether an object exists in another object's prototype chain.
  *
- * @param {Object} other
+ * @param {?Object} other
  * @return {boolean}
  * @nosideeffects
  * @see http://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object/isPrototypeOf
@@ -369,7 +369,7 @@ Object.prototype.isPrototypeOf = function(other) {};
  *
  * @param {string} sprop a string containing the name of the property whose
  * getter should be returned
- * @return {Function}
+ * @return {?Function}
  * @nosideeffects
  * @see http://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object/lookupGetter
  */
@@ -381,7 +381,7 @@ Object.prototype.__lookupGetter__ = function(sprop) {};
  *
  * @param {string} sprop a string containing the name of the property whose
  *     setter should be returned.
- * @return {Function}
+ * @return {?Function}
  * @nosideeffects
  * @see http://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object/lookupSetter
  */
@@ -391,7 +391,7 @@ Object.prototype.__lookupSetter__ = function(sprop) {};
  * Executes a function when a non-existent method is called on an object.
  * Mozilla-only.
  *
- * @param {Function} fun
+ * @param {?Function} fun
  * @return {*}
  * @see http://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object/noSuchMethod
  */
@@ -401,7 +401,7 @@ Object.prototype.__noSuchMethod__ = function(fun) {};
  * Points to an object's context.  For top-level objects, this is the e.g. window.
  * Mozilla-only.
  *
- * @type {Object}
+ * @type {?Object}
  * @deprecated
  * @see http://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object/parent
  */
@@ -413,7 +413,7 @@ Object.prototype.__parent__;
  *
  * Will be null on Object.prototype.
  *
- * @type {Object}
+ * @type {?Object}
  * @see http://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object/proto
  */
 Object.prototype.__proto__;
@@ -497,7 +497,7 @@ Function.prototype.arity;
 
 /**
  * Nonstandard; Mozilla and JScript only.
- * @type {Function}
+ * @type {?Function}
  * @see http://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Function/caller
  */
 Function.prototype.caller;
@@ -544,7 +544,7 @@ Function.prototype.toString = function() {};
 function Array(var_args) {}
 
 /**
- * @return {Iterator<T>}
+ * @return {?Iterator<T>}
  * @suppress {externsValidation}
  */
 Array.prototype[Symbol.iterator] = function() {};
@@ -823,7 +823,7 @@ Array.prototype.input;
 Array.prototype.length;
 
 /**
- * @param {IArrayLike<T>} arr
+ * @param {?IArrayLike<T>} arr
  * @param {?function(this:S, T, number, ?) : ?} callback
  * @param {S=} opt_context
  * @return {boolean}
@@ -832,7 +832,7 @@ Array.prototype.length;
 Array.every = function(arr, callback, opt_context) {};
 
 /**
- * @param {IArrayLike<T>} arr
+ * @param {?IArrayLike<T>} arr
  * @param {?function(this:S, T, number, ?) : ?} callback
  * @param {S=} opt_context
  * @return {!Array<T>}
@@ -841,7 +841,7 @@ Array.every = function(arr, callback, opt_context) {};
 Array.filter = function(arr, callback, opt_context) {};
 
 /**
- * @param {IArrayLike<T>} arr
+ * @param {?IArrayLike<T>} arr
  * @param {?function(this:S, T, number, ?) : ?} callback
  * @param {S=} opt_context
  * @template T,S
@@ -851,7 +851,7 @@ Array.forEach = function(arr, callback, opt_context) {};
 
 /**
  * Mozilla 1.6+ only.
- * @param {IArrayLike<T>} arr
+ * @param {?IArrayLike<T>} arr
  * @param {T} obj
  * @param {number=} opt_fromIndex
  * @return {number}
@@ -863,7 +863,7 @@ Array.indexOf = function(arr, obj, opt_fromIndex) {};
 
 /**
  * Mozilla 1.6+ only.
- * @param {IArrayLike<T>} arr
+ * @param {?IArrayLike<T>} arr
  * @param {T} obj
  * @param {number=} opt_fromIndex
  * @return {number}
@@ -874,7 +874,7 @@ Array.indexOf = function(arr, obj, opt_fromIndex) {};
 Array.lastIndexOf = function(arr, obj, opt_fromIndex) {};
 
 /**
- * @param {IArrayLike<T>} arr
+ * @param {?IArrayLike<T>} arr
  * @param {?function(this:S, T, number, !Array<T>): R} callback
  * @param {S=} opt_context
  * @return {!Array<R>}
@@ -883,7 +883,7 @@ Array.lastIndexOf = function(arr, obj, opt_fromIndex) {};
 Array.map = function(arr, callback, opt_context) {};
 
 /**
- * @param {IArrayLike<T>} arr
+ * @param {?IArrayLike<T>} arr
  * @param {?function(this:S, T, number, ?) : ?} callback
  * @param {S=} opt_context
  * @return {boolean}
@@ -972,7 +972,7 @@ Number.prototype.toPrecision = function(opt_precision) {};
 /**
  * Returns a string representing the number.
  * @this {Number|number}
- * @param {(number|Number)=} opt_radix An optional radix.
+ * @param {(number|?Number)=} opt_radix An optional radix.
  * @return {string}
  * @nosideeffects
  * @see http://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Number/toString
@@ -1626,8 +1626,8 @@ Date.prototype.toTimeString = function() {};
 Date.prototype.toUTCString = function() {};
 
 /**
- * @param {(string|Array<string>)=} opt_locales
- * @param {Object=} opt_options
+ * @param {(string|?Array<string>)=} opt_locales
+ * @param {?Object=} opt_options
  * @return {string}
  * @nosideeffects
  * @see http://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Date/toLocaleDateString
@@ -1643,8 +1643,8 @@ Date.prototype.toLocaleDateString = function(opt_locales, opt_options) {};
 Date.prototype.toLocaleFormat = function(formatString) {};
 
 /**
- * @param {string|Array<string>=} opt_locales
- * @param {Object=} opt_options
+ * @param {string|?Array<string>=} opt_locales
+ * @param {?Object=} opt_options
  * @return {string}
  * @nosideeffects
  * @see http://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Date/toLocaleString
@@ -1654,8 +1654,8 @@ Date.prototype.toLocaleFormat = function(formatString) {};
 Date.prototype.toLocaleString = function(opt_locales, opt_options) {};
 
 /**
- * @param {(string|Array<string>)=} opt_locales
- * @param {Object=} opt_options
+ * @param {(string|?Array<string>)=} opt_locales
+ * @param {?Object=} opt_options
  * @return {string}
  * @nosideeffects
  * @see http://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Date/toLocaleTimeString
@@ -1838,8 +1838,8 @@ String.prototype.link = function(hrefAttribute) {};
  *
  * @this {*}
  * @param {?string} compareString
- * @param {string|Array<string>=} locales
- * @param {Object=} options
+ * @param {string|?Array<string>=} locales
+ * @param {?Object=} options
  * @return {number}
  * @nosideeffects
  * @see http://developer.mozilla.org/En/Core_JavaScript_1.5_Reference/Objects/String/localeCompare
@@ -1853,7 +1853,7 @@ String.prototype.localeCompare = function(compareString, locales, options) {};
  *
  * @this {String|string}
  * @param {*} regexp
- * @return {Array<string>} This should really return an Array with a few
+ * @return {?Array<string>} This should really return an Array with a few
  *     special properties, but we do not have a good way to model this in
  *     our type system. Also see Regexp.prototype.exec.
  * @see http://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String/match
@@ -1875,8 +1875,8 @@ String.prototype.quote = function() {};
  * This may have side-effects if the replacement function has side-effects.
  *
  * @this {String|string}
- * @param {RegExp|string} pattern
- * @param {string|Function} replacement
+ * @param {?RegExp|string} pattern
+ * @param {string|?Function} replacement
  * @return {string}
  * @see http://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String/replace
  */
@@ -1887,7 +1887,7 @@ String.prototype.replace = function(pattern, replacement) {};
  * object.
  *
  * @this {String|string}
- * @param {RegExp|string} pattern
+ * @param {?RegExp|string} pattern
  * @return {number}
  * @see http://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String/search
  */
@@ -2258,8 +2258,8 @@ Error.stackTraceLimit;
  * constructorOpt parameter allows you to pass in a function value. When
  * collecting the stack trace all frames above the topmost call to this
  * function, including that call, will be left out of the stack trace.
- * @param {Object} error The object to add the stack trace to.
- * @param {Function=} opt_constructor A function in the stack trace
+ * @param {?Object} error The object to add the stack trace to.
+ * @param {?Function=} opt_constructor A function in the stack trace
  * @see http://code.google.com/p/v8/wiki/JavaScriptStackTraceApi
  * @return {undefined}
  */

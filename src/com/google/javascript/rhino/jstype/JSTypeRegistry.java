@@ -1423,13 +1423,7 @@ public class JSTypeRegistry implements Serializable {
    * @return the union of the type and the Null type
    */
   public JSType createDefaultObjectUnion(JSType type) {
-    if (type.isTemplateType()) {
-      // Template types represent the substituted type exactly and should
-      // not be wrapped.
-      return type;
-    } else {
-      return createNullableType(type);
-    }
+    return type;
   }
 
   /**

@@ -109,7 +109,7 @@ function PerformanceNavigationTiming() {}
 /** @type {number} */ PerformanceNavigationTiming.prototype.domComplete;
 /** @type {number} */ PerformanceNavigationTiming.prototype.loadEventStart;
 /** @type {number} */ PerformanceNavigationTiming.prototype.loadEventEnd;
-/** @type {NavigationType} */ PerformanceNavigationTiming.prototype.type;
+/** @type {?NavigationType} */ PerformanceNavigationTiming.prototype.type;
 /** @type {number} */ PerformanceNavigationTiming.prototype.redirectCount;
 
 /** @constructor */
@@ -145,10 +145,10 @@ PerformanceLongTaskTiming.prototype.attribution;
 /** @constructor */
 function Performance() {}
 
-/** @type {PerformanceTiming} */
+/** @type {?PerformanceTiming} */
 Performance.prototype.timing;
 
-/** @type {PerformanceNavigation} */
+/** @type {?PerformanceNavigation} */
 Performance.prototype.navigation;
 
 /** @type {number} */
@@ -210,7 +210,7 @@ Performance.prototype.getEntriesByName = function(name, opt_entryType) {};
 
 // Nonstandard. Only available in Blink.
 // Returns more granular results with the --enable-memory-info flag.
-/** @type {MemoryInfo} */ Performance.prototype.memory;
+/** @type {?MemoryInfo} */ Performance.prototype.memory;
 
 /**
  * @return {number}
@@ -251,7 +251,7 @@ Performance.prototype.measure = function(
  */
 Performance.prototype.clearMeasures = function(opt_measureName) {};
 
-/** @type {Performance} */
+/** @type {?Performance} */
 Window.prototype.performance;
 
 /**

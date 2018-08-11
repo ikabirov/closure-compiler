@@ -353,7 +353,7 @@ MediaStreamTrack.prototype.contentHint;
 MediaStreamTrack.prototype.remote;
 
 /**
- * @type {MediaStreamTrackState}
+ * @type {?MediaStreamTrackState}
  * Read only.
  */
 MediaStreamTrack.prototype.readyState;
@@ -382,7 +382,7 @@ MediaStreamTrack.prototype.onoverconstrained;
  * Applies the specified set of constraints to the track, if any specified; or
  * if no constraints are specified, removes all constraints from the track.
  *
- * @param {MediaTrackConstraints=} constraints Constraints to apply to the
+ * @param {?MediaTrackConstraints=} constraints Constraints to apply to the
  *   track.
  * @return {!Promise<void>} A |Promise| that is resolved when the constraints
  *   have been applied, or rejected if there was an error applying the
@@ -485,7 +485,7 @@ MediaStream.prototype.getTracks = function() {};
 
 /**
  * @param {string} trackId
- * @return {MediaStreamTrack}
+ * @return {?MediaStreamTrack}
  */
 MediaStream.prototype.getTrackById = function(trackId) {};
 
@@ -855,12 +855,12 @@ ConstrainBooleanParameters.prototype.ideal;
 function ConstrainDOMStringParameters() {}
 
 /**
- * @type {string|Array<string>|undefined}
+ * @type {string|?Array<string>|undefined}
  */
 ConstrainDOMStringParameters.prototype.exact;
 
 /**
- * @type {string|Array<string>|undefined}
+ * @type {string|?Array<string>|undefined}
  */
 ConstrainDOMStringParameters.prototype.ideal;
 
@@ -901,25 +901,25 @@ ConstrainLongRange.prototype.ideal;
 
 /**
  * @see https://w3c.github.io/mediacapture-main/getusermedia.html#dom-constrainboolean
- * @typedef {boolean|ConstrainBooleanParameters}
+ * @typedef {boolean|?ConstrainBooleanParameters}
  */
 var ConstrainBoolean;
 
 /**
  * @see https://w3c.github.io/mediacapture-main/getusermedia.html#dom-constraindomString
- * @typedef {string|Array<string>|ConstrainDOMStringParameters}
+ * @typedef {string|?Array<string>|?ConstrainDOMStringParameters}
  */
 var ConstrainDOMString;
 
 /**
  * @see https://w3c.github.io/mediacapture-main/getusermedia.html#dom-constraindouble
- * @typedef {number|ConstrainDoubleRange}
+ * @typedef {number|?ConstrainDoubleRange}
  */
 var ConstrainDouble;
 
 /**
  * @see https://w3c.github.io/mediacapture-main/getusermedia.html#dom-constrainlong
- * @typedef {number|ConstrainLongRange}
+ * @typedef {number|?ConstrainLongRange}
  */
 var ConstrainLong;
 
@@ -932,77 +932,77 @@ var ConstrainLong;
 function MediaTrackConstraintSet() {}
 
 /**
- * @type {ConstrainBoolean|undefined}
+ * @type {?ConstrainBoolean|undefined}
  */
 MediaTrackConstraintSet.prototype.autoGainControl;
 
 /**
- * @type {ConstrainDouble|undefined}
+ * @type {?ConstrainDouble|undefined}
  */
 MediaTrackConstraintSet.prototype.aspectRatio;
 
 /**
- * @type {ConstrainLong|undefined}
+ * @type {?ConstrainLong|undefined}
  */
 MediaTrackConstraintSet.prototype.channelCount;
 
 /**
- * @type {ConstrainDOMString|undefined}
+ * @type {?ConstrainDOMString|undefined}
  */
 MediaTrackConstraintSet.prototype.deviceId;
 
 /**
- * @type {ConstrainBoolean|undefined}
+ * @type {?ConstrainBoolean|undefined}
  */
 MediaTrackConstraintSet.prototype.echoCancellation;
 
 /**
- * @type {ConstrainDOMString|undefined}
+ * @type {?ConstrainDOMString|undefined}
  */
 MediaTrackConstraintSet.prototype.facingMode;
 
 /**
- * @type {ConstrainDouble|undefined}
+ * @type {?ConstrainDouble|undefined}
  */
 MediaTrackConstraintSet.prototype.frameRate;
 
 /**
- * @type {ConstrainDOMString|undefined}
+ * @type {?ConstrainDOMString|undefined}
  */
 MediaTrackConstraintSet.prototype.groupId;
 
 /**
- * @type {ConstrainLong|undefined}
+ * @type {?ConstrainLong|undefined}
  */
 MediaTrackConstraintSet.prototype.height;
 
 /**
- * @type {ConstrainDouble|undefined}
+ * @type {?ConstrainDouble|undefined}
  */
 MediaTrackConstraintSet.prototype.latency;
 
 /**
- * @type {ConstrainBoolean|undefined}
+ * @type {?ConstrainBoolean|undefined}
  */
 MediaTrackConstraintSet.prototype.noiseSuppression;
 
 /**
- * @type {ConstrainLong|undefined}
+ * @type {?ConstrainLong|undefined}
  */
 MediaTrackConstraintSet.prototype.sampleRate;
 
 /**
- * @type {ConstrainLong|undefined}
+ * @type {?ConstrainLong|undefined}
  */
 MediaTrackConstraintSet.prototype.sampleSize;
 
 /**
- * @type {ConstrainDouble|undefined}
+ * @type {?ConstrainDouble|undefined}
  */
 MediaTrackConstraintSet.prototype.volume;
 
 /**
- * @type {ConstrainLong|undefined}
+ * @type {?ConstrainLong|undefined}
  */
 MediaTrackConstraintSet.prototype.width;
 
@@ -1014,7 +1014,7 @@ MediaTrackConstraintSet.prototype.width;
 function MediaTrackConstraints() {}
 
 /**
- * @type {Array<!MediaTrackConstraintSet>|undefined}
+ * @type {?Array<!MediaTrackConstraintSet>|undefined}
  */
 MediaTrackConstraints.prototype.advanced;
 
@@ -1025,12 +1025,12 @@ MediaTrackConstraints.prototype.advanced;
 function MediaStreamConstraints() {}
 
 /**
- * @type {boolean|MediaTrackConstraints|undefined}
+ * @type {boolean|?MediaTrackConstraints|undefined}
  */
 MediaStreamConstraints.prototype.audio;
 
 /**
- * @type {boolean|MediaTrackConstraints|undefined}
+ * @type {boolean|?MediaTrackConstraints|undefined}
  */
 MediaStreamConstraints.prototype.video;
 
@@ -1074,7 +1074,7 @@ NavigatorUserMediaError.prototype.message;
 NavigatorUserMediaError.prototype.constraintName;
 
 /**
- * @param {MediaStreamConstraints} constraints A MediaStreamConstraints object.
+ * @param {?MediaStreamConstraints} constraints A MediaStreamConstraints object.
  * @param {function(!MediaStream)} successCallback
  *     A NavigatorUserMediaSuccessCallback function.
  * @param {function(!NavigatorUserMediaError)=} errorCallback A
@@ -1120,7 +1120,7 @@ MediaRecorderOptions.prototype.bitsPerSecond
 /**
  * @see https://www.w3.org/TR/mediastream-recording/#mediarecorder-api
  * @param {!MediaStream} stream
- * @param {MediaRecorderOptions=} options
+ * @param {?MediaRecorderOptions=} options
  * @implements {EventTarget}
  * @constructor
  */
@@ -1518,7 +1518,7 @@ RTCIceServerInterface_.prototype.credential;
 /**
  * This type, and several below it, are constructed as unions between records
  *
- * @typedef {RTCIceServerRecord_|RTCIceServerInterface_}
+ * @typedef {?RTCIceServerRecord_|?RTCIceServerInterface_}
  * @private
  */
 var RTCIceServer;
@@ -1541,7 +1541,7 @@ function RTCConfigurationInterface_() {}
 RTCConfigurationInterface_.prototype.iceServers;
 
 /**
- * @typedef {RTCConfigurationRecord_|RTCConfigurationInterface_}
+ * @typedef {?RTCConfigurationRecord_|?RTCConfigurationInterface_}
  */
 var RTCConfiguration;
 
@@ -1583,7 +1583,7 @@ var RTCIceGatheringState;
 function RTCPeerConnectionIceEvent(type, eventInitDict) {}
 
 /**
- * @type {RTCIceCandidate}
+ * @type {?RTCIceCandidate}
  * @const
  */
 RTCPeerConnectionIceEvent.prototype.candidate;
@@ -1598,7 +1598,7 @@ RTCPeerConnectionIceEvent.prototype.candidate;
 function RTCStatsReport() {}
 
 /**
- * @type {Date}
+ * @type {?Date}
  * @const
  */
 RTCStatsReport.prototype.timestamp;
@@ -1616,14 +1616,14 @@ RTCStatsReport.prototype.stat = function(name) {};
 
 /**
  * @deprecated
- * @type {RTCStatsReport}
+ * @type {?RTCStatsReport}
  * @const
  */
 RTCStatsReport.prototype.local;
 
 /**
  * @deprecated
- * @type {RTCStatsReport}
+ * @type {?RTCStatsReport}
  * @const
  */
 RTCStatsReport.prototype.remote;
@@ -1645,7 +1645,7 @@ RTCStatsReport.prototype.id;
 // Mozilla.
 // See https://www.w3.org/TR/webrtc/#rtcstatsreport-object for definition.
 /**
- * @param {function(this:SCOPE, Object, string, MAP)} callback
+ * @param {function(this:SCOPE, ?Object, string, MAP)} callback
  * @param {SCOPE=} opt_thisObj The value of "this" inside callback function.
  * @this {MAP}
  * @template MAP,SCOPE
@@ -1655,7 +1655,7 @@ RTCStatsReport.prototype.forEach = function(callback, opt_thisObj) {};
 
 /**
  * @param {string} key
- * @return {Object}
+ * @return {?Object}
  * @readonly
  */
 RTCStatsReport.prototype.get = function(key) {};
@@ -1669,7 +1669,7 @@ RTCStatsReport.prototype.keys = function() {};
 /**
  * TODO(bemasc): Remove this type once it is no longer in use.  It has already
  * been removed from the specification.
- * @typedef {RTCStatsReport}
+ * @typedef {?RTCStatsReport}
  * @deprecated
  */
 var RTCStatsElement;
@@ -1685,7 +1685,7 @@ function RTCStatsResponse() {}
 RTCStatsResponse.prototype.result = function() {};
 
 /**
- * @typedef {function(!RTCStatsResponse, MediaStreamTrack=)}
+ * @typedef {function(!RTCStatsResponse, ?MediaStreamTrack=)}
  */
 var RTCStatsCallback;
 
@@ -1723,7 +1723,7 @@ MediaConstraintSetInterface_.prototype.RtpDataChannels;
 /**
  * TODO(bemasc): Make this type public once it is defined in a standard.
  *
- * @typedef {Object|MediaConstraintSetInterface_}
+ * @typedef {?Object|?MediaConstraintSetInterface_}
  * @private
  */
 var MediaConstraintSet_;
@@ -1749,7 +1749,7 @@ MediaConstraintsInterface_.prototype.optional;
  * {@see http://dev.w3.org/2011/webrtc/editor/webrtc.html} but is not yet
  * defined.
  *
- * @typedef {Object|MediaConstraintsInterface_}
+ * @typedef {?Object|?MediaConstraintsInterface_}
  */
 var MediaConstraints;
 
@@ -1848,7 +1848,7 @@ function RTCDataChannelInitInterface_() {}
 RTCDataChannelInitInterface_.prototype.reliable;
 
 /**
- * @typedef {Object}
+ * @typedef {?Object}
  * @property {boolean=} [ordered=true]
  * @property {number=} maxPacketLifeTime
  * @property {number=} maxRetransmits
@@ -1869,7 +1869,7 @@ RTCDataChannelInitInterface_.prototype.reliable;
 var RTCDataChannelInitDictionary_;
 
 /**
- * @typedef {RTCDataChannelInitInterface_|RTCDataChannelInitRecord_|RTCDataChannelInitDictionary_}
+ * @typedef {?RTCDataChannelInitInterface_|?RTCDataChannelInitRecord_|?RTCDataChannelInitDictionary_}
  */
 var RTCDataChannelInit;
 
@@ -1879,7 +1879,7 @@ var RTCDataChannelInit;
 var RTCCertificate;
 
 /**
- * @param {RTCConfiguration} configuration
+ * @param {?RTCConfiguration} configuration
  * @param {!MediaConstraints=} constraints
  * @constructor
  * @implements {EventTarget}
@@ -1887,8 +1887,8 @@ var RTCCertificate;
 function RTCPeerConnection(configuration, constraints) {}
 
 /**
- * @param {Object} keygenAlgorithm
- * @return {Promise<RTCCertificate>}
+ * @param {?Object} keygenAlgorithm
+ * @return {?Promise<?RTCCertificate>}
  */
 RTCPeerConnection.generateCertificate = function (keygenAlgorithm) {};
 
@@ -1968,7 +1968,7 @@ RTCPeerConnection.prototype.localDescription;
 RTCPeerConnection.prototype.remoteDescription;
 
 /**
- * @type {RTCSignalingState}
+ * @type {?RTCSignalingState}
  * Read only.
  */
 RTCPeerConnection.prototype.signalingState;
@@ -1984,7 +1984,7 @@ RTCPeerConnection.prototype.updateIce = function(configuration, constraints) {};
  * Void in Chrome for now, a promise that you can then/catch in Firefox.
  * @param {!RTCIceCandidate} candidate
  * @param {!RTCVoidCallback=} successCallback
- * @param {!function(DOMException)=} errorCallback
+ * @param {!function(?DOMException)=} errorCallback
  * @return {!Promise|undefined}
  */
 RTCPeerConnection.prototype.addIceCandidate = function(candidate, successCallback, errorCallback) {};
@@ -2013,7 +2013,7 @@ RTCPeerConnection.prototype.getRemoteStreams = function() {};
 
 /**
  * @param {string} streamId
- * @return {MediaStream}
+ * @return {?MediaStream}
  */
 RTCPeerConnection.prototype.getStreamById = function(streamId) {};
 
@@ -2029,7 +2029,7 @@ RTCPeerConnection.prototype.getReceivers = function() {};
 
 /**
  * @param {?string} label
- * @param {RTCDataChannelInit=} dataChannelDict
+ * @param {?RTCDataChannelInit=} dataChannelDict
  * @return {!RTCDataChannel}
  */
 RTCPeerConnection.prototype.createDataChannel =
@@ -2050,7 +2050,7 @@ RTCPeerConnection.prototype.removeStream = function(stream) {};
 /**
  * @param {!MediaStreamTrack} track
  * @param {!MediaStream} stream
- * @param {...MediaStream} var_args Additional streams.
+ * @param {...?MediaStream} var_args Additional streams.
  * @return {!RTCRtpSender}
  */
 RTCPeerConnection.prototype.addTrack = function(track, stream, var_args) {};
@@ -2094,7 +2094,7 @@ RTCPeerConnection.prototype.removeTrack = function(sender) {};
  * Firefox' getstats is synchronous and returns a much simpler
  * {!RTCStatsReport} Map-like object.
  * @param {!RTCStatsCallback=} successCallback
- * @param {MediaStreamTrack=} selector
+ * @param {?MediaStreamTrack=} selector
  * @return {undefined|!RTCStatsReport|!Promise<!RTCStatsReport>}
  */
 RTCPeerConnection.prototype.getStats = function(successCallback, selector) {};

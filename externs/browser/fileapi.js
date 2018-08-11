@@ -32,8 +32,8 @@ BlobPropertyBag.prototype.type;
 
 /**
  * @see http://dev.w3.org/2006/webapi/FileAPI/#dfn-Blob
- * @param {Array<ArrayBuffer|ArrayBufferView|Blob|string>=} opt_blobParts
- * @param {BlobPropertyBag=} opt_options
+ * @param {?Array<?ArrayBuffer|?ArrayBufferView|?Blob|string>=} opt_blobParts
+ * @param {?BlobPropertyBag=} opt_options
  * @constructor
  * @nosideeffects
  */
@@ -93,7 +93,7 @@ function BlobBuilder() {}
  * @see http://www.w3.org/TR/file-writer-api/#widl-BlobBuilder-append0
  * @see http://www.w3.org/TR/file-writer-api/#widl-BlobBuilder-append1
  * @see http://www.w3.org/TR/file-writer-api/#widl-BlobBuilder-append2
- * @param {string|Blob|ArrayBuffer} data
+ * @param {string|?Blob|?ArrayBuffer} data
  * @param {string=} endings
  * @return {undefined}
  */
@@ -117,7 +117,7 @@ function WebKitBlobBuilder() {}
  * @see http://www.w3.org/TR/file-writer-api/#widl-BlobBuilder-append0
  * @see http://www.w3.org/TR/file-writer-api/#widl-BlobBuilder-append1
  * @see http://www.w3.org/TR/file-writer-api/#widl-BlobBuilder-append2
- * @param {string|Blob|ArrayBuffer} data
+ * @param {string|?Blob|?ArrayBuffer} data
  * @param {string=} endings
  * @return {undefined}
  */
@@ -325,7 +325,7 @@ File.prototype.name;
 
 /**
  * @see http://www.w3.org/TR/FileAPI/#dfn-lastModifiedDate
- * @type {Date}
+ * @type {?Date}
  */
 File.prototype.lastModifiedDate;
 
@@ -575,13 +575,13 @@ FileReader.prototype.readyState;
 
 /**
  * @see http://www.w3.org/TR/FileAPI/#dfn-result
- * @type {string|Blob|ArrayBuffer}
+ * @type {string|?Blob|?ArrayBuffer}
  */
 FileReader.prototype.result;
 
 /**
  * @see http://www.w3.org/TR/FileAPI/#dfn-error
- * @type {FileError}
+ * @type {?FileError}
  */
 FileReader.prototype.error;
 
@@ -659,7 +659,7 @@ FileSaver.prototype.readyState;
 
 /**
  * @see http://www.w3.org/TR/file-writer-api/#widl-FileSaver-error
- * @type {FileError}
+ * @type {?FileError}
  */
 FileSaver.prototype.error;
 

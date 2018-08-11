@@ -26,7 +26,7 @@
 
 /**
  * @param {string} s id.
- * @return {Element}
+ * @return {?Element}
  * @nosideeffects
  * @see https://www.w3.org/TR/2000/CR-DOM-Level-2-20000510/core.html#ID-getElBId
  */
@@ -52,9 +52,9 @@ Document.prototype.createAttributeNS =
     function(namespaceURI, qualifiedName) {};
 
 /**
- * @param {Node} root
+ * @param {?Node} root
  * @param {number=} whatToShow
- * @param {NodeFilter=} filter
+ * @param {?NodeFilter=} filter
  * @param {boolean=} entityReferenceExpansion
  * @return {!NodeIterator}
  * @see https://www.w3.org/TR/2000/REC-DOM-Level-2-Traversal-Range-20001113/traversal.html#Traversal-Document
@@ -65,9 +65,9 @@ Document.prototype.createNodeIterator = function(
     root, whatToShow, filter, entityReferenceExpansion) {};
 
 /**
- * @param {Node} root
+ * @param {?Node} root
  * @param {number=} whatToShow
- * @param {NodeFilter=} filter
+ * @param {?NodeFilter=} filter
  * @param {boolean=} entityReferenceExpansion
  * @return {!TreeWalker}
  * @see https://www.w3.org/TR/2000/REC-DOM-Level-2-Traversal-Range-20001113/traversal.html#Traversal-Document
@@ -87,9 +87,9 @@ Document.prototype.createTreeWalker = function(
 Document.prototype.getElementsByTagNameNS = function(namespace, name) {};
 
 /**
- * @param {Node} externalNode
+ * @param {?Node} externalNode
  * @param {boolean} deep
- * @return {Node}
+ * @return {?Node}
  * @see https://www.w3.org/TR/2000/CR-DOM-Level-2-20000510/core.html#Core-Document-importNode
  */
 Document.prototype.importNode = function(externalNode, deep) {};
@@ -141,8 +141,8 @@ function HTMLOptionsCollection() {}
 HTMLOptionsCollection.prototype.length;
 
 /**
- * @param {HTMLOptionElement|HTMLOptGroupElement} element
- * @param {HTMLElement|number=} before
+ * @param {?HTMLOptionElement|?HTMLOptGroupElement} element
+ * @param {?HTMLElement|number=} before
  * @return {undefined}
  * @see https://html.spec.whatwg.org/multipage/common-dom-interfaces.html#dom-htmloptionscollection-add
  */
@@ -153,7 +153,7 @@ HTMLOptionsCollection.prototype.add = function(element, before) {};
  * HTMLCollection, but it must be declared explicitly to work around an error
  * when building a jsinterop library for GWT.
  * @param {number} index
- * @return {HTMLOptionElement}
+ * @return {?HTMLOptionElement}
  * @override
  * @nosideeffects
  */
@@ -283,8 +283,8 @@ HTMLDocument.prototype.getElementsByName = function(elementName) {};
 
 
 /** @typedef {{
-  createNodeIterator: function(Node, number=, NodeFilter=, boolean=) : NodeIterator,
-  createTreeWalker: function(Node, number=, NodeFilter=, boolean=) : TreeWalker
+  createNodeIterator: function(?Node, number=, ?NodeFilter=, boolean=) : NodeIterator,
+  createTreeWalker: function(?Node, number=, ?NodeFilter=, boolean=) : TreeWalker
 }} */
 var TraversalDocument;
 
@@ -315,7 +315,7 @@ function NodeFilter() {}
 /** @const {number} */ NodeFilter.FILTER_SKIP;
 
 /**
- * @param {Node} n
+ * @param {?Node} n
  * @return {number} Any of NodeFilter.FILTER_* constants.
  * @see http://www.w3.org/TR/DOM-Level-2-Traversal-Range/traversal.html#Traversal-NodeFilter-acceptNode
 */
@@ -335,13 +335,13 @@ function NodeIterator() {}
 NodeIterator.prototype.detach = function() {};
 
 /**
- * @return {Node} Next node in the set.
+ * @return {?Node} Next node in the set.
  * @see http://www.w3.org/TR/DOM-Level-2-Traversal-Range/traversal.html#Traversal-NodeIterator-nextNode
  */
 NodeIterator.prototype.nextNode = function() {};
 
 /**
- * @return {Node} Previous node in the set.
+ * @return {?Node} Previous node in the set.
  * @see http://www.w3.org/TR/DOM-Level-2-Traversal-Range/traversal.html#Traversal-NodeIterator-previousNode
  */
 NodeIterator.prototype.previousNode = function() {};
@@ -395,7 +395,7 @@ TreeWalker.prototype.previousNode = function() {};
 TreeWalker.prototype.previousSibling = function() {};
 
 /**
- * @type {Node}
+ * @type {?Node}
  */
 TreeWalker.prototype.root;
 
@@ -405,7 +405,7 @@ TreeWalker.prototype.root;
 TreeWalker.prototype.whatToShow;
 
 /**
- * @type {NodeFilter}
+ * @type {?NodeFilter}
  */
 TreeWalker.prototype.filter;
 
@@ -415,7 +415,7 @@ TreeWalker.prototype.filter;
 TreeWalker.prototype.expandEntityReference;
 
 /**
- * @type {Node}
+ * @type {?Node}
  */
 TreeWalker.prototype.currentNode;
 
@@ -558,7 +558,7 @@ HTMLLinkElement.prototype.target;
  */
 HTMLLinkElement.prototype.type;
 
-/** @type {StyleSheet} */
+/** @type {?StyleSheet} */
 HTMLLinkElement.prototype.sheet;
 
 /**
@@ -632,7 +632,7 @@ HTMLBaseElement.prototype.target;
 function HTMLIsIndexElement() {}
 
 /**
- * @type {HTMLFormElement}
+ * @type {?HTMLFormElement}
  * @see http://www.w3.org/TR/2000/CR-DOM-Level-2-20000510/html.html#ID-87069980
  */
 HTMLIsIndexElement.prototype.form;
@@ -669,7 +669,7 @@ HTMLStyleElement.prototype.media;
  */
 HTMLStyleElement.prototype.type;
 
-/** @type {StyleSheet} */
+/** @type {?StyleSheet} */
 HTMLStyleElement.prototype.sheet;
 
 /**
@@ -727,7 +727,7 @@ function HTMLFormControlsCollection() {}
 
 /**
  * @param {string} name
- * @return {T|RadioNodeList<T>|null}
+ * @return {T|?RadioNodeList<T>|null}
  * @see https://html.spec.whatwg.org/multipage/infrastructure.html#dom-htmlformcontrolscollection-nameditem
  * @nosideeffects
  * @override
@@ -835,7 +835,7 @@ HTMLSelectElement.prototype.value;
 HTMLSelectElement.prototype.length;
 
 /**
- * @type {HTMLFormElement}
+ * @type {?HTMLFormElement}
  * @see http://www.w3.org/TR/2000/CR-DOM-Level-2-20000510/html.html#ID-20489458
  */
 HTMLSelectElement.prototype.form;
@@ -871,8 +871,8 @@ HTMLSelectElement.prototype.name;
 HTMLSelectElement.prototype.size;
 
 /**
- * @param {HTMLElement} element
- * @param {HTMLElement=} opt_before
+ * @param {?HTMLElement} element
+ * @param {?HTMLElement=} opt_before
  * @return {undefined}
  * @see http://www.w3.org/TR/2000/CR-DOM-Level-2-20000510/html.html#ID-14493106
  */
@@ -939,7 +939,7 @@ HTMLOptionElement.prototype.defaultSelected;
 HTMLOptionElement.prototype.disabled;
 
 /**
- * @type {HTMLFormElement}
+ * @type {?HTMLFormElement}
  * @see http://www.w3.org/TR/2000/CR-DOM-Level-2-20000510/html.html#ID-17116503
  */
 HTMLOptionElement.prototype.form;
@@ -1031,7 +1031,7 @@ HTMLInputElement.prototype.defaultValue;
 HTMLInputElement.prototype.disabled;
 
 /**
- * @type {HTMLFormElement}
+ * @type {?HTMLFormElement}
  * @see http://www.w3.org/TR/2000/CR-DOM-Level-2-20000510/html.html#ID-63239895
  */
 HTMLInputElement.prototype.form;
@@ -1150,7 +1150,7 @@ HTMLTextAreaElement.prototype.defaultValue;
 HTMLTextAreaElement.prototype.disabled;
 
 /**
- * @type {HTMLFormElement}
+ * @type {?HTMLFormElement}
  * @see http://www.w3.org/TR/2000/CR-DOM-Level-2-20000510/html.html#ID-18911464
  */
 HTMLTextAreaElement.prototype.form;
@@ -1232,7 +1232,7 @@ HTMLButtonElement.prototype.accessKey;
 HTMLButtonElement.prototype.disabled;
 
 /**
- * @type {HTMLFormElement}
+ * @type {?HTMLFormElement}
  * @see http://www.w3.org/TR/2000/CR-DOM-Level-2-20000510/html.html#ID-71254493
  */
 HTMLButtonElement.prototype.form;
@@ -1275,7 +1275,7 @@ function HTMLLabelElement() {}
 HTMLLabelElement.prototype.accessKey;
 
 /**
- * @type {HTMLFormElement}
+ * @type {?HTMLFormElement}
  * @see http://www.w3.org/TR/2000/CR-DOM-Level-2-20000510/html.html#ID-32480901
  */
 HTMLLabelElement.prototype.form;
@@ -1294,7 +1294,7 @@ HTMLLabelElement.prototype.htmlFor;
 function HTMLFieldSetElement() {}
 
 /**
- * @type {HTMLFormElement}
+ * @type {?HTMLFormElement}
  * @see http://www.w3.org/TR/2000/CR-DOM-Level-2-20000510/html.html#ID-75392630
  */
 HTMLFieldSetElement.prototype.form;
@@ -1325,7 +1325,7 @@ HTMLLegendElement.prototype.accessKey;
 HTMLLegendElement.prototype.align;
 
 /**
- * @type {HTMLFormElement}
+ * @type {?HTMLFormElement}
  * @see http://www.w3.org/TR/2000/CR-DOM-Level-2-20000510/html.html#ID-29594519
  */
 HTMLLegendElement.prototype.form;
@@ -1841,7 +1841,7 @@ HTMLObjectElement.prototype.codeBase;
 HTMLObjectElement.prototype.codeType;
 
 /**
- * @type {Document}
+ * @type {?Document}
  * @see http://www.w3.org/TR/2000/CR-DOM-Level-2-20000510/html.html#ID-38538621
  */
 HTMLObjectElement.prototype.contentDocument;
@@ -1859,7 +1859,7 @@ HTMLObjectElement.prototype.data;
 HTMLObjectElement.prototype.declare;
 
 /**
- * @type {HTMLFormElement}
+ * @type {?HTMLFormElement}
  * @see http://www.w3.org/TR/2000/CR-DOM-Level-2-20000510/html.html#ID-46094773
  */
 HTMLObjectElement.prototype.form;
@@ -2034,7 +2034,7 @@ HTMLAppletElement.prototype.width;
 function HTMLMapElement() {}
 
 /**
- * @type {HTMLCollection<!HTMLAreaElement>}
+ * @type {?HTMLCollection<!HTMLAreaElement>}
  * @see http://www.w3.org/TR/2000/CR-DOM-Level-2-20000510/html.html#ID-71838730
  */
 HTMLMapElement.prototype.areas;
@@ -2180,7 +2180,7 @@ HTMLTableElement.prototype.bgColor;
 HTMLTableElement.prototype.border;
 
 /**
- * @type {HTMLTableCaptionElement}
+ * @type {?HTMLTableCaptionElement}
  * @see http://www.w3.org/TR/2000/CR-DOM-Level-2-20000510/html.html#ID-14594520
  */
 HTMLTableElement.prototype.caption;
@@ -2204,7 +2204,7 @@ HTMLTableElement.prototype.cellSpacing;
 HTMLTableElement.prototype.frame;
 
 /**
- * @type {HTMLCollection<!HTMLTableRowElement>}
+ * @type {?HTMLCollection<!HTMLTableRowElement>}
  * @see http://www.w3.org/TR/2000/CR-DOM-Level-2-20000510/html.html#ID-6156016
  */
 HTMLTableElement.prototype.rows;
@@ -2222,19 +2222,19 @@ HTMLTableElement.prototype.rules;
 HTMLTableElement.prototype.summary;
 
 /**
- * @type {HTMLCollection<!HTMLTableSectionElement>}
+ * @type {?HTMLCollection<!HTMLTableSectionElement>}
  * @see http://www.w3.org/TR/2000/CR-DOM-Level-2-20000510/html.html#ID-63206416
  */
 HTMLTableElement.prototype.tBodies;
 
 /**
- * @type {HTMLTableSectionElement}
+ * @type {?HTMLTableSectionElement}
  * @see http://www.w3.org/TR/2000/CR-DOM-Level-2-20000510/html.html#ID-64197097
  */
 HTMLTableElement.prototype.tFoot;
 
 /**
- * @type {HTMLTableSectionElement}
+ * @type {?HTMLTableSectionElement}
  * @see http://www.w3.org/TR/2000/CR-DOM-Level-2-20000510/html.html#ID-9530944
  */
 HTMLTableElement.prototype.tHead;
@@ -2247,19 +2247,19 @@ HTMLTableElement.prototype.tHead;
 HTMLTableElement.prototype.width;
 
 /**
- * @return {HTMLElement}
+ * @return {?HTMLElement}
  * @see http://www.w3.org/TR/2000/CR-DOM-Level-2-20000510/html.html#ID-96920263
  */
 HTMLTableElement.prototype.createCaption = function() {};
 
 /**
- * @return {HTMLElement}
+ * @return {?HTMLElement}
  * @see http://www.w3.org/TR/2000/CR-DOM-Level-2-20000510/html.html#ID-8453710
  */
 HTMLTableElement.prototype.createTFoot = function() {};
 
 /**
- * @return {HTMLElement}
+ * @return {?HTMLElement}
  * @see http://www.w3.org/TR/2000/CR-DOM-Level-2-20000510/html.html#ID-70313345
  */
 HTMLTableElement.prototype.createTHead = function() {};
@@ -2272,7 +2272,7 @@ HTMLTableElement.prototype.deleteCaption = function() {};
 
 /**
  * @param {number} index
- * @return {HTMLElement}
+ * @return {?HTMLElement}
  * @see http://www.w3.org/TR/2000/CR-DOM-Level-2-20000510/html.html#ID-13114938
  */
 HTMLTableElement.prototype.deleteRow = function(index) {};
@@ -2291,7 +2291,7 @@ HTMLTableElement.prototype.deleteTHead = function() {};
 
 /**
  * @param {number=} opt_index
- * @return {HTMLElement}
+ * @return {?HTMLElement}
  * @see https://www.w3.org/TR/html5/tabular-data.html#htmltableelement
  */
 HTMLTableElement.prototype.insertRow = function(opt_index) {};
@@ -2379,7 +2379,7 @@ HTMLTableSectionElement.prototype.ch;
 HTMLTableSectionElement.prototype.chOff;
 
 /**
- * @type {HTMLCollection<!HTMLTableRowElement>}
+ * @type {?HTMLCollection<!HTMLTableRowElement>}
  * @see http://www.w3.org/TR/2000/CR-DOM-Level-2-20000510/html.html#ID-52092650
  */
 HTMLTableSectionElement.prototype.rows;
@@ -2392,14 +2392,14 @@ HTMLTableSectionElement.prototype.vAlign;
 
 /**
  * @param {number} index
- * @return {HTMLElement}
+ * @return {?HTMLElement}
  * @see http://www.w3.org/TR/2000/CR-DOM-Level-2-20000510/html.html#ID-5625626
  */
 HTMLTableSectionElement.prototype.deleteRow = function(index) {};
 
 /**
  * @param {number=} opt_index
- * @return {HTMLElement}
+ * @return {?HTMLElement}
  * @see https://www.w3.org/TR/html5/tabular-data.html#htmltablesectionelement
  */
 HTMLTableSectionElement.prototype.insertRow = function(opt_index) {};
@@ -2424,7 +2424,7 @@ HTMLTableRowElement.prototype.align;
 HTMLTableRowElement.prototype.bgColor;
 
 /**
- * @type {HTMLCollection<!HTMLTableCellElement>}
+ * @type {?HTMLCollection<!HTMLTableCellElement>}
  * @see http://www.w3.org/TR/2000/CR-DOM-Level-2-20000510/html.html#ID-67349879
  */
 HTMLTableRowElement.prototype.cells;
@@ -2468,7 +2468,7 @@ HTMLTableRowElement.prototype.deleteCell = function(index) {};
 
 /**
  * @param {number} index
- * @return {HTMLElement}
+ * @return {?HTMLElement}
  * @see http://www.w3.org/TR/2000/CR-DOM-Level-2-20000510/html.html#ID-68927016
  */
 HTMLTableRowElement.prototype.insertCell = function(index) {};
@@ -2599,7 +2599,7 @@ HTMLFrameSetElement.prototype.rows;
 function HTMLFrameElement() {}
 
 /**
- * @type {Document}
+ * @type {?Document}
  * @see http://www.w3.org/TR/2000/CR-DOM-Level-2-20000510/html.html#ID-78799536
  */
 HTMLFrameElement.prototype.contentDocument;
@@ -2666,7 +2666,7 @@ function HTMLIFrameElement() {}
 HTMLIFrameElement.prototype.align;
 
 /**
- * @type {Document}
+ * @type {?Document}
  * @see http://www.w3.org/TR/2000/CR-DOM-Level-2-20000510/html.html#ID-67133006
  */
 HTMLIFrameElement.prototype.contentDocument;

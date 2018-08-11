@@ -61,7 +61,7 @@ XMLDOMDocument.prototype.onreadystatechange;
 XMLDOMDocument.prototype.ontransformnode;
 
 /**
- * @type {Object}
+ * @type {?Object}
  * @see http://msdn.microsoft.com/en-us/library/ms756041(VS.85).aspx
  */
 XMLDOMDocument.prototype.parseError;
@@ -114,7 +114,7 @@ XMLDOMDocument.prototype.abort = function() {};
  * @param {*} type
  * @param {string} name
  * @param {string} namespaceURI
- * @return {Node}
+ * @return {?Node}
  * @see http://msdn.microsoft.com/en-us/library/ms757901(VS.85).aspx
  * @nosideeffects
  */
@@ -138,7 +138,7 @@ XMLDOMDocument.prototype.loadXML = function(xmlString) {};
 
 /**
  * @param {string} id
- * @return {Node}
+ * @return {?Node}
  * @see http://msdn.microsoft.com/en-us/library/ms766397(VS.85).aspx
  */
 XMLDOMDocument.prototype.nodeFromID = function(id) {};
@@ -162,7 +162,7 @@ Node.prototype.baseName;
 Node.prototype.dataType;
 
 /**
- * @type {Node}
+ * @type {?Node}
  * @see http://msdn.microsoft.com/en-us/library/ms764733(VS.85).aspx
  */
 Node.prototype.definition;
@@ -170,7 +170,7 @@ Node.prototype.definition;
 /**
  * IE5 used document instead of ownerDocument.
  * Old versions of WebKit used document instead of contentDocument.
- * @type {Document}
+ * @type {?Document}
  */
 Node.prototype.document;
 
@@ -217,7 +217,7 @@ Node.prototype.nodeTypeString;
 Node.prototype.parsed;
 
 /**
- * @type {Element}
+ * @type {?Element}
  * @see http://msdn.microsoft.com/en-us/library/ms534327(VS.85).aspx
  */
 Node.prototype.parentElement;
@@ -250,14 +250,14 @@ Node.prototype.selectNodes = function(expression) {};
 
 /**
  * @param {string} expression An XPath expression.
- * @return {Node}
+ * @return {?Node}
  * @see http://msdn.microsoft.com/en-us/library/ms757846(VS.85).aspx
  * @nosideeffects
  */
 Node.prototype.selectSingleNode = function(expression) {};
 
 /**
- * @param {Node} stylesheet XSLT stylesheet.
+ * @param {?Node} stylesheet XSLT stylesheet.
  * @return {string}
  * @see http://msdn.microsoft.com/en-us/library/ms761399(VS.85).aspx
  * @nosideeffects
@@ -265,10 +265,10 @@ Node.prototype.selectSingleNode = function(expression) {};
 Node.prototype.transformNode = function(stylesheet) {};
 
 /**
- * @param {Node} stylesheet XSLT stylesheet.
- * @param {Object} outputObject
+ * @param {?Node} stylesheet XSLT stylesheet.
+ * @param {?Object} outputObject
  * @see http://msdn.microsoft.com/en-us/library/ms766561(VS.85).aspx
- * @return {Object}
+ * @return {?Object}
  */
 Node.prototype.transformNodeToObject =
     function(stylesheet, outputObject) {};
@@ -279,7 +279,7 @@ Node.prototype.transformNodeToObject =
 /**
  * @param {boolean=} opt_bRemoveChildren Whether to remove the entire sub-tree.
  *    Defaults to false.
- * @return {Node} The object that was removed.
+ * @return {?Node} The object that was removed.
  * @see http://msdn.microsoft.com/en-us/library/ms536708(VS.85).aspx
  */
 Node.prototype.removeNode = function(opt_bRemoveChildren) {};
@@ -320,7 +320,7 @@ var window;
 
 /**
  * @see http://msdn.microsoft.com/en-us/library/ms535220(VS.85).aspx
- * @type {ClipboardData}
+ * @type {?ClipboardData}
  */
 Window.prototype.clipboardData;
 
@@ -380,7 +380,7 @@ Window.prototype.screenTop;
 
 /**
  * @param {string} event
- * @param {Function} handler
+ * @param {?Function} handler
  * @see http://msdn.microsoft.com/en-us/library/ms536343(VS.85).aspx
  */
 Window.prototype.attachEvent;
@@ -392,7 +392,7 @@ Window.prototype.createPopup;
 
 /**
  * @param {string} event
- * @param {Function} handler
+ * @param {?Function} handler
  * @see http://msdn.microsoft.com/en-us/library/ms536411(VS.85).aspx
  */
 Window.prototype.detachEvent;
@@ -433,7 +433,7 @@ Window.prototype.navigate;
  * @param {string=} opt_windowName
  * @param {string=} opt_windowFeatures
  * @param {boolean=} opt_replace
- * @return {Window}
+ * @return {?Window}
  * @see http://msdn.microsoft.com/en-us/library/ms536651(VS.85).aspx
  */
 Window.prototype.open = function(opt_url, opt_windowName, opt_windowFeatures,
@@ -518,7 +518,7 @@ History.prototype.forward = function() {};
 HTMLFrameElement.prototype.allowTransparency;
 
 /**
- * @type {Window}
+ * @type {?Window}
  * @see http://msdn.microsoft.com/en-us/library/ms533692(VS.85).aspx
  */
 HTMLFrameElement.prototype.contentWindow;
@@ -672,7 +672,7 @@ TextRange.prototype.getBoundingClientRect;
 TextRange.prototype.getClientRects;
 
 /**
- * @param {TextRange|ControlRange} range
+ * @param {?TextRange|?ControlRange} range
  * @return {boolean}
  * @see http://msdn.microsoft.com/en-us/library/ms536450(VS.85).aspx
  */
@@ -764,7 +764,7 @@ TextRange.prototype.select = function() {};
 
 /**
  * @param {string} how
- * @param {TextRange|ControlRange} sourceRange
+ * @param {?TextRange|?ControlRange} sourceRange
  * @see http://msdn.microsoft.com/en-us/library/ms536745(VS.85).aspx
  */
 TextRange.prototype.setEndPoint;
@@ -776,13 +776,13 @@ TextRange.prototype.setEndPoint;
 Selection.prototype.clear = function() {};
 
 /**
- * @return {TextRange|ControlRange}
+ * @return {?TextRange|?ControlRange}
  * @see http://msdn.microsoft.com/en-us/library/ms536394(VS.85).aspx
  */
 Selection.prototype.createRange = function() {};
 
 /**
- * @return {Array<TextRange>}
+ * @return {?Array<?TextRange>}
  * @see http://msdn.microsoft.com/en-us/library/ms536396(VS.85).aspx
  */
 Selection.prototype.createRangeCollection = function() {};
@@ -868,7 +868,7 @@ Document.prototype.protocol;
 HTMLDocument.prototype.readyState;
 
 /**
- * @type {Selection}
+ * @type {?Selection}
  * @see http://msdn.microsoft.com/en-us/library/ms535869(VS.85).aspx
  */
 Document.prototype.selection;
@@ -897,7 +897,7 @@ Document.prototype.XSLDocument;
 
 /**
  * @param {string} event
- * @param {Function} handler
+ * @param {?Function} handler
  * @see http://msdn.microsoft.com/en-us/library/ms536343(VS.85).aspx
  */
 Document.prototype.attachEvent;
@@ -914,7 +914,7 @@ Document.prototype.createStyleSheet;
 
 /**
  * @param {string} event
- * @param {Function} handler
+ * @param {?Function} handler
  * @see http://msdn.microsoft.com/en-us/library/ms536411(VS.85).aspx
  */
 Document.prototype.detachEvent;
@@ -988,7 +988,7 @@ Element.prototype.addBehavior = function(sUrl) {};
 
 /**
  * @param {string} event
- * @param {Function} handler
+ * @param {?Function} handler
  * @see http://msdn.microsoft.com/en-us/library/mm536343(v=vs.85).aspx
  */
 Element.prototype.attachEvent;
@@ -1025,7 +1025,7 @@ Element.prototype.componentFromPoint = function(iCoordX, iCoordY) {};
 Element.prototype.contentEditable;
 
 /**
- * @return {TextRange}
+ * @return {?TextRange}
  * @see http://msdn.microsoft.com/en-us/library/ms536401(VS.85).aspx
  */
 Element.prototype.createTextRange;
@@ -1038,7 +1038,7 @@ Element.prototype.currentStyle;
 
 /**
  * @param {string} event
- * @param {Function} handler
+ * @param {?Function} handler
  * @see http://msdn.microsoft.com/en-us/library/ie/ms536411(v=vs.85).aspx
  */
 Element.prototype.detachEvent;
@@ -1180,7 +1180,7 @@ HTMLFiltersCollection.prototype.length;
 
 /**
  * @see http://msdn.microsoft.com/en-us/library/ms537452(v=vs.85).aspx
- * @type {HTMLFiltersCollection}
+ * @type {?HTMLFiltersCollection}
  */
 Element.prototype.filters;
 
@@ -1230,7 +1230,7 @@ function Location() {}
 
 /**
  * @see http://trac.webkit.org/changeset/113945
- * @type {DOMStringList}
+ * @type {?DOMStringList}
  */
 Location.prototype.ancestorOrigins;
 
@@ -1320,7 +1320,7 @@ function RuntimeObject(opt_str) {}
 
 
 /**
- * @type {StyleSheet}
+ * @type {?StyleSheet}
  * @see http://msdn.microsoft.com/en-us/library/dd347030(VS.85).aspx
  */
 HTMLStyleElement.prototype.styleSheet;

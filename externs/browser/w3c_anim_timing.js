@@ -24,7 +24,7 @@
 
 /**
  * @param {function(number): undefined} callback
- * @param {Element=} opt_element In early versions of this API, the callback
+ * @param {?Element=} opt_element In early versions of this API, the callback
  *     was invoked only if the element was visible.
  * @return {number}
  */
@@ -44,7 +44,7 @@ function cancelAnimationFrame(handle) {};
 
 /**
  * @param {function(number)} callback
- * @param {Element=} opt_element
+ * @param {?Element=} opt_element
  * @return {number}
  */
 function webkitRequestAnimationFrame(callback, opt_element) {};
@@ -64,7 +64,7 @@ function webkitCancelAnimationFrame(handle) {};
 /**
  * @param {?function(number)} callback It's legitimate to pass a null
  *     callback and listen on the MozBeforePaint event instead.
- * @param {Element=} opt_element
+ * @param {?Element=} opt_element
  * @return {number}
  */
 function mozRequestAnimationFrame(callback, opt_element) {};
@@ -83,7 +83,7 @@ function mozCancelAnimationFrame(handle) {};
 
 /**
  * @param {function(number)} callback
- * @param {Element=} opt_element
+ * @param {?Element=} opt_element
  * @return {number}
  */
 function msRequestAnimationFrame(callback, opt_element) {};
@@ -102,7 +102,7 @@ function msCancelAnimationFrame(handle) {};
 
 /**
  * @param {function(number)} callback
- * @param {Element=} opt_element
+ * @param {?Element=} opt_element
  * @return {number}
  */
 function oRequestAnimationFrame(callback, opt_element) {};
