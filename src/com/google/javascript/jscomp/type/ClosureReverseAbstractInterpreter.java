@@ -177,6 +177,20 @@ public final class ClosureReverseAbstractInterpreter
           }
         }
       }
+      else if (callee.isName() && param.isQualifiedName()) {
+        String qualifiedName = callee.getQualifiedName();
+        String shortName = qualifiedName.replaceAll("\\$\\$.*", "");
+        if (qualifiedName != shortName)
+        {
+          Function<TypeRestriction, JSType> restricter =
+              restricters.get(shortName);
+          if (restricter != null) {
+            JSType paramType =  getTypeIfRefinable(param, blindScope);
+            return restrictParameter(param, paramType, blindScope, restricter,
+                outcome);
+          }
+        }
+      }
     }
     return nextPreciserScopeKnowingConditionOutcome(
         condition, blindScope, outcome);

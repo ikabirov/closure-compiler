@@ -297,6 +297,8 @@ public class Compiler extends AbstractCompiler implements ErrorHandler, SourceFi
    * Creates a Compiler that reports errors and warnings to an output stream.
    */
   public Compiler(PrintStream outStream) {
+    outStream.println();
+    
     addChangeHandler(recentChange);
     this.outStream = outStream;
     this.moduleTypesByName = new HashMap<>();

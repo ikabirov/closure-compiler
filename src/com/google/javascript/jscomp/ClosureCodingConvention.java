@@ -392,7 +392,16 @@ public final class ClosureCodingConvention extends CodingConventions.Proxy {
         new AssertFunctionByTypeName("goog.asserts.assertFunction", "Function"),
         new AssertFunctionByTypeName("goog.asserts.assertArray", "Array"),
         new AssertFunctionByTypeName("goog.asserts.assertElement", "Element"),
-        new AssertInstanceofSpec("goog.asserts.assertInstanceof")
+        new AssertInstanceofSpec("goog.asserts.assertInstanceof"),
+
+        new AssertionFunctionSpec("verify$$module$src$assert", JSTypeNative.TRUTHY),
+        new AssertionFunctionSpec("verifyNumber$$module$src$assert", JSTypeNative.NUMBER_TYPE),
+        new AssertionFunctionSpec("verifyString$$module$src$assert", JSTypeNative.STRING_TYPE),
+        new AssertionFunctionSpec("verifyObject$$module$src$assert", JSTypeNative.OBJECT_TYPE),
+        new AssertFunctionByTypeName("verifyFunction$$module$src$assert", "Function"),
+        new AssertFunctionByTypeName("verifyArray$$module$src$assert", "Array"),
+        new AssertFunctionByTypeName("verifyElement$$module$src$assert", "Element"),
+        new AssertInstanceofSpec("verifyInstanceof$$module$src$assert")
     );
   }
 

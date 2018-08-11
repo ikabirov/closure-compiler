@@ -1359,8 +1359,15 @@ class TypeInference
   private FlowScope tightenTypesAfterAssertions(FlowScope scope, Node callNode) {
     Node left = callNode.getFirstChild();
     Node firstParam = left.getNext();
+    
+    String name = left.getQualifiedName();
+    if (name != null)
+    {
+      name = name.replaceAll("(\\$\\$module).*(\\$src\\$)", "$1$2");
+    }
+
     AssertionFunctionSpec assertionFunctionSpec =
-        assertionFunctionsMap.get(left.getQualifiedName());
+        assertionFunctionsMap.get(name);
     if (assertionFunctionSpec == null || firstParam == null) {
       return scope;
     }
